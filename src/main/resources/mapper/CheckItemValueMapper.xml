@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sheenline.ehm.server.dao.CheckItemValueMapper" >
+  <resultMap id="BaseResultMap" type="com.sheenline.ehm.server.entity.CheckItemValue" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="RoadBureau" property="roadbureau" jdbcType="VARCHAR" />
+    <result column="Segment" property="segment" jdbcType="VARCHAR" />
+    <result column="AreaCode" property="areacode" jdbcType="VARCHAR" />
+    <result column="DeviceNum" property="devicenum" jdbcType="VARCHAR" />
+    <result column="DeviceName" property="devicename" jdbcType="VARCHAR" />
+    <result column="ItemCode" property="itemcode" jdbcType="VARCHAR" />
+    <result column="DataValue" property="datavalue" jdbcType="VARCHAR" />
+    <result column="CreateTime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, RoadBureau, Segment, AreaCode, DeviceNum, DeviceName, ItemCode, DataValue, CreateTime
+  </sql>
+  <insert id="insertSelective" parameterType="com.sheenline.ehm.server.entity.CheckItemValue" >
+    insert into CHECK_ITEM_VALUE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="roadbureau != null" >
+        RoadBureau,
+      </if>
+      <if test="segment != null" >
+        Segment,
+      </if>
+      <if test="areacode != null" >
+        AreaCode,
+      </if>
+      <if test="devicenum != null" >
+        DeviceNum,
+      </if>
+      <if test="devicename != null" >
+        DeviceName,
+      </if>
+      <if test="itemcode != null" >
+        ItemCode,
+      </if>
+      <if test="datavalue != null" >
+        DataValue,
+      </if>
+      <if test="createtime != null" >
+        CreateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="roadbureau != null" >
+        #{roadbureau,jdbcType=VARCHAR},
+      </if>
+      <if test="segment != null" >
+        #{segment,jdbcType=VARCHAR},
+      </if>
+      <if test="areacode != null" >
+        #{areacode,jdbcType=VARCHAR},
+      </if>
+      <if test="devicenum != null" >
+        #{devicenum,jdbcType=VARCHAR},
+      </if>
+      <if test="devicename != null" >
+        #{devicename,jdbcType=VARCHAR},
+      </if>
+      <if test="itemcode != null" >
+        #{itemcode,jdbcType=VARCHAR},
+      </if>
+      <if test="datavalue != null" >
+        #{datavalue,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

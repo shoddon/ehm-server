@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sheenline.ehm.server.dao.DeviceInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.sheenline.ehm.server.entity.DeviceInfo" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="DeviceNum" property="devicenum" jdbcType="VARCHAR" />
+    <result column="DeviceName" property="devicename" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, DeviceNum, DeviceName
+  </sql>
+  <select id="selectByDeviceNum" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from B_DEVICE_INFO
+    where DeviceNum = #{devicenum}
+  </select>
+</mapper>

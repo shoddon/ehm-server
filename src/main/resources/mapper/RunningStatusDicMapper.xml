@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sheenline.ehm.server.dao.RunningStatusDicMapper" >
+  <resultMap id="BaseResultMap" type="com.sheenline.ehm.server.entity.RunningStatusDic" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="DEVICENUM" property="devicenum" jdbcType="VARCHAR" />
+    <result column="STATUSNAME" property="statusname" jdbcType="VARCHAR" />
+    <result column="STATUSCODE" property="statuscode" jdbcType="VARCHAR" />
+    <result column="RUNNINGTIME" property="runningtime" jdbcType="TIMESTAMP" />
+    <result column="CREATEUSER" property="createuser" jdbcType="VARCHAR" />
+    <result column="CREATETIME" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="UPDATEUSER" property="updateuser" jdbcType="VARCHAR" />
+    <result column="UPDATETIME" property="updatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, DEVICENUM, STATUSNAME, STATUSCODE, RUNNINGTIME, CREATEUSER, CREATETIME, UPDATEUSER, 
+    UPDATETIME
+  </sql>
+  <select id="selectByDevNoAndStatusCode" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from DIC_RUNNING_STATUS
+    where DEVICENUM = #{devicenum} and STATUSCODE = #{statuscode}
+  </select>
+</mapper>

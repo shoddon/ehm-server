@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sheenline.ehm.server.dao.CheckItemDicMapper" >
+  <resultMap id="BaseResultMap" type="com.sheenline.ehm.server.entity.CheckItemDic" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="DEVICENUM" property="devicenum" jdbcType="VARCHAR" />
+    <result column="CHECKITEM" property="checkitem" jdbcType="VARCHAR" />
+    <result column="ITEMCODE" property="itemcode" jdbcType="VARCHAR" />
+    <result column="CREATEUSER" property="createuser" jdbcType="VARCHAR" />
+    <result column="CREATETIME" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="UPDATEUSER" property="updateuser" jdbcType="VARCHAR" />
+    <result column="UPDATETIME" property="updatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, DEVICENUM, CHECKITEM, ITEMCODE, CREATEUSER, CREATETIME, UPDATEUSER, UPDATETIME
+  </sql>
+  <select id="selectByDevNoAndStatusCode" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from SYS_CHECKITEM_DIC
+    where DEVICENUM = #{devicenum} and ITEMCODE = #{itemcode}
+  </select>
+</mapper>
